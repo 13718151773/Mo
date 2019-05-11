@@ -56,8 +56,8 @@ public class LoginActivity extends AppCompatActivity implements Contract.View{
         Intent intent = getIntent();
         String phones = intent.getStringExtra("phone");
         String passs = intent.getStringExtra("pass");
-        phone.setText(phones+"");
-        pass.setText(passs+"");
+        phone.setText(phones);
+        pass.setText(passs);
 
         //sp
         sp = getSharedPreferences("m", 0);
@@ -150,7 +150,7 @@ public class LoginActivity extends AppCompatActivity implements Contract.View{
     public void showData(LoginBean bean) {
         String message = bean.getMessage();
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
-        if (message.equals("登录成功")){
+        if (message.equals("登陆成功")){
             int userId = bean.getResult().getUserId();
             String sessionId = bean.getResult().getSessionId();
             SharedPreferences.Editor edit = sp.edit();

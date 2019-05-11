@@ -45,5 +45,7 @@ dependencies {
     implementation 'com.squareup.retrofit2:converter-gson:2.4.0'
     //
     implementation 'com.xw.repo:xedittext:2.1.0@aar'
+    implementation 'com.hjm:BottomTabBar:1.1.1'
+
 
 }
