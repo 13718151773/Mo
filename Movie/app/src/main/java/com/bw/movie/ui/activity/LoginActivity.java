@@ -35,8 +35,8 @@ public class LoginActivity extends AppCompatActivity implements Contract.View{
     XEditText pass;
     @BindView(R.id.rmm)
     CheckBox rmm;
-    @BindView(R.id.zd)
-    CheckBox zd;
+//    @BindView(R.id.zd)
+//    CheckBox zd;
     @BindView(R.id.kszc)
     TextView kszc;
     @BindView(R.id.login)
@@ -89,7 +89,7 @@ public class LoginActivity extends AppCompatActivity implements Contract.View{
 
     }
 
-    @OnClick({R.id.rmm, R.id.zd, R.id.kszc, R.id.login, R.id.wenxin})
+    @OnClick({R.id.rmm,  R.id.kszc, R.id.login, R.id.wenxin})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.rmm:
@@ -108,18 +108,18 @@ public class LoginActivity extends AppCompatActivity implements Contract.View{
                 edit.commit();
 
                 break;
-            case R.id.zd:
-
-                //自动登录
-                SharedPreferences.Editor edit1 = sp.edit();
-                if (zd.isChecked()){
-                    edit1.putBoolean("zd",true);
-                }else{
-                    edit1.putBoolean("zd",false);
-                }
-
-
-                break;
+//            case R.id.zd:
+//
+//                //自动登录
+////                SharedPreferences.Editor edit1 = sp.edit();
+////                if (zd.isChecked()){
+////                    edit1.putBoolean("zd",true);
+////                }else{
+////                    edit1.putBoolean("zd",false);
+////                }
+//
+//
+//                break;
             case R.id.kszc:
 
                 //快速注册

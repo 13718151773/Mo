@@ -112,16 +112,16 @@
             android:textColor="#ffffff"
             android:buttonTint="#ffffff"
             />
-        <CheckBox
-            android:id="@+id/zd"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="自动登录"
-            android:layout_toRightOf="@+id/rmm"
-            android:textColor="#ffffff"
-            android:buttonTint="#ffffff"
-            android:layout_marginLeft="@dimen/dp_10"
-            />
+        <!--<CheckBox-->
+            <!--android:id="@+id/zd"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="自动登录"-->
+            <!--android:layout_toRightOf="@+id/rmm"-->
+            <!--android:textColor="#ffffff"-->
+            <!--android:buttonTint="#ffffff"-->
+            <!--android:layout_marginLeft="@dimen/dp_10"-->
+            <!--/>-->
 
         <TextView
             android:id="@+id/kszc"
