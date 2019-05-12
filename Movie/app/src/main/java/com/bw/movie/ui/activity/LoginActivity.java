@@ -153,6 +153,7 @@ public class LoginActivity extends AppCompatActivity implements Contract.View{
         if (message.equals("登陆成功")){
             int userId = bean.getResult().getUserId();
             String sessionId = bean.getResult().getSessionId();
+            Log.d("LoginActivity", "userId:" + userId+"------"+sessionId);
             SharedPreferences.Editor edit = sp.edit();
             edit.putInt("userid",userId);
             edit.putString("sessionid",sessionId);

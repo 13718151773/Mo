@@ -1,11 +1,15 @@
 package com.bw.movie.data.net;
 
 import com.bw.movie.data.bean.LoginBean;
+import com.bw.movie.data.bean.MyMessageBean;
+import com.bw.movie.data.bean.QdBean;
 import com.bw.movie.data.bean.RegisterBean;
 
 import retrofit2.Call;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
+import retrofit2.http.GET;
+import retrofit2.http.Header;
 import retrofit2.http.POST;
 import retrofit2.http.Query;
 
@@ -30,6 +34,18 @@ public interface ApiService {
     @FormUrlEncoded
     @POST("movieApi/user/v1/login")
     Call<LoginBean> dl(@Field("phone")String phone,@Field("pwd")String pwd);
+
+    //根据用户ID查询用户信息 zn
+    @GET("movieApi/user/v1/verify/getUserInfoByUserId")
+    Call<MyMessageBean> yhxx(@Header("userid")int userid,@Header("sessionid")String sessionid);
+
+    //用户签到
+    @GET("movieApi/user/v1/verify/userSignIn")
+    Call<QdBean> qd(@Header("userid")int userid,@Header("sessionid")String sessionid);
+
+
+
+
 
 
 
