@@ -1,6 +1,7 @@
 package com.bw.movie.di.model;
 
 import com.bw.movie.data.bean.MyMessageBean;
+import com.bw.movie.data.bean.NewVerSessionBean;
 import com.bw.movie.data.bean.QdBean;
 import com.bw.movie.data.net.ApiService;
 import com.bw.movie.data.net.NetUtils;
@@ -50,6 +51,30 @@ public class MyModel implements MyContract.Model {
             }
         });
 
+        //新版本
+        ApiService service2 = NetUtils.getinstance(ApiService.class);
+        Call<NewVerSessionBean> call2 = service2.news(userid, sessionid, "0110010010000");
+        call2.enqueue(new Callback<NewVerSessionBean>() {
+            @Override
+            public void onResponse(Call<NewVerSessionBean> call, Response<NewVerSessionBean> response) {
+                NewVerSessionBean bean = response.body();
+                callBack.oncall4(bean);
+            }
+
+            @Override
+            public void onFailure(Call<NewVerSessionBean> call, Throwable t) {
+
+            }
+        });
+
 
     }
+
+
+
+
+
+
+
+
 }

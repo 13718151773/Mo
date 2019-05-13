@@ -17,11 +17,14 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bw.movie.R;
-import com.bw.movie.ui.wdactivity.YhxxActivity;
 import com.bw.movie.data.bean.MyMessageBean;
+import com.bw.movie.data.bean.NewVerSessionBean;
 import com.bw.movie.data.bean.QdBean;
 import com.bw.movie.di.contract.MyContract;
 import com.bw.movie.di.presenter.MyPresenter;
+import com.bw.movie.ui.activity.LoginActivity;
+import com.bw.movie.ui.wdactivity.XtxxActivity;
+import com.bw.movie.ui.wdactivity.YhxxActivity;
 import com.facebook.drawee.view.SimpleDraweeView;
 
 import butterknife.BindView;
@@ -58,6 +61,7 @@ public class FragMine extends Fragment implements MyContract.View {
     private int userid;
     private String sessionid;
 
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -72,7 +76,6 @@ public class FragMine extends Fragment implements MyContract.View {
         presenter = new MyPresenter();
         presenter.attachView(this);
         presenter.requestData(userid, sessionid);
-
 
 
         return view;
@@ -90,19 +93,20 @@ public class FragMine extends Fragment implements MyContract.View {
         switch (view.getId()) {
             case R.id.yl:
 
-                //音量
+                //系统消息
+                startActivity(new Intent(getActivity(), XtxxActivity.class));
 
                 break;
             case R.id.qd:
 
                 //签到
-                presenter.requestData(userid,sessionid);
+                presenter.requestData3(userid, sessionid);
 
                 break;
             case R.id.wdxx:
 
                 //我的信息
-                startActivity(new Intent(getActivity(),YhxxActivity.class));
+                startActivity(new Intent(getActivity(), YhxxActivity.class));
 
 
                 break;
@@ -119,20 +123,25 @@ public class FragMine extends Fragment implements MyContract.View {
             case R.id.yjfk:
 
                 //意见反馈
+                
 
                 break;
             case R.id.zxbb:
 
                 //最新版本
+                presenter.requestData4(userid,sessionid);
 
                 break;
             case R.id.tcdl:
 
                 //退出登录
+                startActivity(new Intent(getActivity(), LoginActivity.class));
+                getActivity().finish();
 
                 break;
         }
     }
+
 
     //个人资料
     @Override
@@ -151,4 +160,21 @@ public class FragMine extends Fragment implements MyContract.View {
         String message = bean.getMessage();
         Toast.makeText(getActivity(), message, Toast.LENGTH_SHORT).show();
     }
+
+    //查询新版本
+    @Override
+    public void showData3(NewVerSessionBean bean) {
+        int flag = bean.getFlag();
+        if (flag==1){
+            Toast.makeText(getActivity(), "有新版本,需要更新", Toast.LENGTH_SHORT).show();
+        }else if (flag==2){
+            Toast.makeText(getActivity(), "没新版本,不需要更新", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+
+
+
+
+
 }

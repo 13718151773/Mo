@@ -1,10 +1,13 @@
 package com.bw.movie.di.presenter;
 
 import com.bw.movie.data.bean.MyMessageBean;
+import com.bw.movie.data.bean.SctxBean;
 import com.bw.movie.di.contract.YhxxContract;
 import com.bw.movie.di.model.YhxxModel;
 
 import java.lang.ref.SoftReference;
+
+import okhttp3.MultipartBody;
 
 /***
  * 用户信息
@@ -34,6 +37,27 @@ public class YhxxPresenter implements YhxxContract.Presenter {
             @Override
             public void oncall(MyMessageBean bean) {
                 view.showData(bean);
+            }
+
+            @Override
+            public void oncall2(SctxBean bean) {
+
+            }
+        });
+    }
+
+    //上传头像
+    @Override
+    public void requestData2(int userid, String sessionid, MultipartBody.Part part) {
+        model.reponseData2(userid,sessionid,part,new YhxxContract.Model.CallBack() {
+            @Override
+            public void oncall(MyMessageBean bean) {
+
+            }
+
+            @Override
+            public void oncall2(SctxBean bean) {
+                view.showData2(bean);
             }
         });
     }
