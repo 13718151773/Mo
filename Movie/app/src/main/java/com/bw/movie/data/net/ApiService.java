@@ -1,14 +1,18 @@
 package com.bw.movie.data.net;
 
+import com.bw.movie.data.bean.FjBean;
+import com.bw.movie.data.bean.GzBean;
 import com.bw.movie.data.bean.LoginBean;
 import com.bw.movie.data.bean.MessageFkBean;
 import com.bw.movie.data.bean.MyGzYpBean;
 import com.bw.movie.data.bean.MyMessageBean;
 import com.bw.movie.data.bean.NewVerSessionBean;
 import com.bw.movie.data.bean.QdBean;
+import com.bw.movie.data.bean.QxGzBean;
 import com.bw.movie.data.bean.RegisterBean;
 import com.bw.movie.data.bean.SctxBean;
 import com.bw.movie.data.bean.SextxxBean;
+import com.bw.movie.data.bean.TuijYyBean;
 import com.bw.movie.data.bean.UpdatePwdBean;
 import com.bw.movie.data.bean.UpdateReadMesBean;
 import com.bw.movie.data.bean.WdBean;
@@ -91,11 +95,36 @@ public interface ApiService {
     Call<MessageFkBean> fk(@Header("userid") int userid, @Header("sessionid") String sessionid,
                            @Field("content") String content);
 
+    //查询推荐影院
+    @GET("movieApi/cinema/v1/findRecommendCinemas")
+    Call<TuijYyBean> tjyy(@Header("userid") int userid, @Header("sessionid") String sessionid,
+                          @Query("page") int page, @Query("count") int count);
+
+    //查询附近影院
+    @GET("movieApi/cinema/v1/findNearbyCinemas")
+    Call<FjBean> fj(@Header("userid") int userid, @Header("sessionid") String sessionid,
+                    @Query("longitude") String longitude, @Query("latitude") String latitude,
+                    @Query("page") int page, @Query("count") int count
+    );
+
+    //关注
+    @GET("movieApi/cinema/v1/verify/followCinema")
+    Call<GzBean> gz(@Header("userid")int userid,@Header("sessionid")String sessionid,
+                    @Query("cinemald")int cinemald);
+
+    //取消关注
+    @GET("movieApi/cinema/v1/verify/cancelFollowCinema")
+    Call<QxGzBean> qxgzyy(@Header("userid")int userid,@Header("sessionid")String sessionid,
+                          @Query("cinemaid")int cinemaid);
+
+
+
     //---------------------------------------------------------------------------------
     //查询用户关注的影片列表
     @GET("movieApi/movie/v1/verify/findMoviePageList")
     Call<MyGzYpBean> gzyp(@Header("userid") int userid, @Header("sessionid") String sessionid
             , @Query("page") int page, @Query("count") int count);
     //查询用户关注的影院
+
 
 }
