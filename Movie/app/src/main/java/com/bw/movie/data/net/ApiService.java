@@ -1,7 +1,9 @@
 package com.bw.movie.data.net;
 
+import com.bw.movie.data.bean.CommingSoonBeen;
 import com.bw.movie.data.bean.FjBean;
 import com.bw.movie.data.bean.GzBean;
+import com.bw.movie.data.bean.HotBeen;
 import com.bw.movie.data.bean.LoginBean;
 import com.bw.movie.data.bean.MessageFkBean;
 import com.bw.movie.data.bean.MyGzYpBean;
@@ -10,12 +12,15 @@ import com.bw.movie.data.bean.NewVerSessionBean;
 import com.bw.movie.data.bean.QdBean;
 import com.bw.movie.data.bean.QxGzBean;
 import com.bw.movie.data.bean.RegisterBean;
+import com.bw.movie.data.bean.ReplaceBeen;
 import com.bw.movie.data.bean.SctxBean;
 import com.bw.movie.data.bean.SextxxBean;
 import com.bw.movie.data.bean.TuijYyBean;
 import com.bw.movie.data.bean.UpdatePwdBean;
 import com.bw.movie.data.bean.UpdateReadMesBean;
 import com.bw.movie.data.bean.WdBean;
+
+import java.util.Map;
 
 import okhttp3.MultipartBody;
 import retrofit2.Call;
@@ -27,6 +32,7 @@ import retrofit2.http.Multipart;
 import retrofit2.http.POST;
 import retrofit2.http.Part;
 import retrofit2.http.Query;
+import retrofit2.http.QueryMap;
 
 /**
  * 张娜
@@ -56,6 +62,20 @@ public interface ApiService {
     //用户签到
     @GET("movieApi/user/v1/verify/userSignIn")
     Call<QdBean> qd(@Header("userid") int userid, @Header("sessionid") String sessionid);
+
+    //热门电影
+    @GET("movieApi/movie/v1/findHotMovieList")
+    Call<HotBeen> hot(@Header("userid") int userid, @Header("sessionid")String sessionid, @QueryMap Map<String,String> map);
+
+    //现在电影
+    @GET("movieApi/movie/v1/findReleaseMovieList")
+    Call<ReplaceBeen> release(@Header("userid") int userid, @Header("sessionid")String sessionid, @QueryMap Map<String,String> map);
+
+    //即将电影
+    @GET("movieApi/movie/v1/findComingSoonMovieList")
+    Call<CommingSoonBeen> omingoon(@Header("userid") int userid, @Header("sessionid")String sessionid, @QueryMap Map<String,String> map);
+
+
 
     //上传头像
     @Multipart

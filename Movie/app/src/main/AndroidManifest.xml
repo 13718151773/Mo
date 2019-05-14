@@ -30,6 +30,7 @@
                 android:resource="@xml/filepaths" />
         </provider>
 
+        <activity android:name=".ui.listActivity.ListActivity"></activity>
         <activity android:name=".ui.activity.ShowActivity" />
         <activity android:name=".ui.activity.NoInterActivity" />
         <activity android:name=".ui.activity.ImageFragFActivity" />

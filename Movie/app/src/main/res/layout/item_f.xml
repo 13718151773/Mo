@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/imgg"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_120"
+        android:layout_marginTop="@dimen/dp_20"
+        android:scaleType="fitXY"
+        android:src="@mipmap/s" />
+
+    <com.facebook.drawee.view.SimpleDraweeView
+        android:id="@+id/fiml_imgs"
+        android:layout_width="@dimen/dp_103"
+        android:layout_height="@dimen/dp_120"
+        android:layout_marginLeft="@dimen/dp_20" />
+
+    <TextView
+        android:id="@+id/fiml_texts"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/imgg"
+        android:layout_marginLeft="@dimen/dp_10"
+        android:layout_marginTop="@dimen/dp_10"
+        android:layout_toRightOf="@id/fiml_imgs"
+        android:text="213"
+        android:textColor="#ffffff"
+        android:textSize="@dimen/sp_14" />
+
+    <ImageView
+        android:id="@+id/img_hurts"
+        android:layout_width="@dimen/dp_24"
+        android:layout_height="@dimen/dp_24"
+        android:layout_alignTop="@id/imgg"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="@dimen/dp_10"
+        android:layout_marginRight="@dimen/dp_10"
+        android:src="@mipmap/hurta" />
+
+    <TextView
+        android:id="@+id/fiml_text_some"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/imgg"
+        android:layout_marginLeft="@dimen/dp_10"
+        android:layout_marginTop="@dimen/dp_40"
+        android:layout_toRightOf="@id/fiml_imgs"
+        android:maxLines="5"
+        android:text="234wsd"
+        android:textColor="#ffffff"
+        android:textSize="@dimen/sp_12" />
+</RelativeLayout>

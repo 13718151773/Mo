@@ -104,7 +104,7 @@ public class FragCinema extends Fragment implements FragCinemaContract.View {
         adapter.setonGuan(new TuijYyAdapter.GuanZhuCallBack() {
             @Override
             public void oncall(int id) {
-                //关注
+                //Todo 关注
                 presenter.requestData3(userid, sessionid, id);
             }
 

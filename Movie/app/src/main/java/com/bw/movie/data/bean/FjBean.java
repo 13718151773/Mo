@@ -5,6 +5,7 @@ package com.bw.movie.data.bean;
  */
 public class FjBean {
 
+    //Todo 附近影院bean
 
 
 }
