@@ -23,6 +23,8 @@ import com.bw.movie.data.bean.QdBean;
 import com.bw.movie.di.contract.MyContract;
 import com.bw.movie.di.presenter.MyPresenter;
 import com.bw.movie.ui.activity.LoginActivity;
+import com.bw.movie.ui.wdactivity.MessageFkActivity;
+import com.bw.movie.ui.wdactivity.WdgzActivity;
 import com.bw.movie.ui.wdactivity.XtxxActivity;
 import com.bw.movie.ui.wdactivity.YhxxActivity;
 import com.facebook.drawee.view.SimpleDraweeView;
@@ -113,6 +115,7 @@ public class FragMine extends Fragment implements MyContract.View {
             case R.id.wdgz:
 
                 //我的关注
+                startActivity(new Intent(getActivity(), WdgzActivity.class));
 
                 break;
             case R.id.gpjl:
@@ -123,13 +126,13 @@ public class FragMine extends Fragment implements MyContract.View {
             case R.id.yjfk:
 
                 //意见反馈
-                
+                startActivity(new Intent(getActivity(), MessageFkActivity.class));
 
                 break;
             case R.id.zxbb:
 
                 //最新版本
-                presenter.requestData4(userid,sessionid);
+                presenter.requestData4(userid, sessionid);
 
                 break;
             case R.id.tcdl:
@@ -165,16 +168,12 @@ public class FragMine extends Fragment implements MyContract.View {
     @Override
     public void showData3(NewVerSessionBean bean) {
         int flag = bean.getFlag();
-        if (flag==1){
+        if (flag == 1) {
             Toast.makeText(getActivity(), "有新版本,需要更新", Toast.LENGTH_SHORT).show();
-        }else if (flag==2){
+        } else if (flag == 2) {
             Toast.makeText(getActivity(), "没新版本,不需要更新", Toast.LENGTH_SHORT).show();
         }
     }
-
-
-
-
 
 
 }

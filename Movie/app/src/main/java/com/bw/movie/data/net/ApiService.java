@@ -1,6 +1,8 @@
 package com.bw.movie.data.net;
 
 import com.bw.movie.data.bean.LoginBean;
+import com.bw.movie.data.bean.MessageFkBean;
+import com.bw.movie.data.bean.MyGzYpBean;
 import com.bw.movie.data.bean.MyMessageBean;
 import com.bw.movie.data.bean.NewVerSessionBean;
 import com.bw.movie.data.bean.QdBean;
@@ -83,5 +85,17 @@ public interface ApiService {
     Call<NewVerSessionBean> news(@Header("userid") int userid, @Header("sessionid") String sessionid
             , @Header("ak") String ak);
 
+    //意见反馈
+    @FormUrlEncoded
+    @POST("movieApi/tool/v1/verify/recordFeedBack")
+    Call<MessageFkBean> fk(@Header("userid") int userid, @Header("sessionid") String sessionid,
+                           @Field("content") String content);
+
+    //---------------------------------------------------------------------------------
+    //查询用户关注的影片列表
+    @GET("movieApi/movie/v1/verify/findMoviePageList")
+    Call<MyGzYpBean> gzyp(@Header("userid") int userid, @Header("sessionid") String sessionid
+            , @Query("page") int page, @Query("count") int count);
+    //查询用户关注的影院
 
 }

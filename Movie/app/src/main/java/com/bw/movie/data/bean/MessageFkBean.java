@@ -1,0 +1,33 @@
+package com.bw.movie.data.bean;
+
+/**
+ * 意见反馈
+ * 张娜
+ */
+public class MessageFkBean {
+
+
+    /**
+     * message : 反馈成功
+     * status : 0000
+     */
+
+    private String message;
+    private String status;
+
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+}

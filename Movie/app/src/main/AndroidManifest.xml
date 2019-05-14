@@ -44,7 +44,9 @@
         <activity android:name=".ui.activity.RegisterActivity" />
         <activity android:name=".ui.wdactivity.YhxxActivity" />
         <activity android:name=".ui.wdactivity.CzpwdActivity" />
-        <activity android:name=".ui.wdactivity.XtxxActivity"></activity>
+        <activity android:name=".ui.wdactivity.XtxxActivity" />
+        <activity android:name=".ui.wdactivity.MessageFkActivity" />
+        <activity android:name=".ui.wdactivity.WdgzActivity"></activity>
     </application>
 
 </manifest>
